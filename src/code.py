@@ -29,9 +29,11 @@ def save_fig_as_png(figtitle):
 
 def load_imgs(folder):
     """
-    This function loads in your images into a numpy array, it takes two arguments
-    flash and noflash, which should be paths to your images; these will be the images
-    you will be working with during the assignment. 
+    This function loads your images into two numpy arrays.
+    
+    One for the noisy images and one for the flash images.
+    
+    Normalize the images. They should have float values!
     
     args:
         path (str): the path to the folder of the images, flash and no flash.
@@ -163,12 +165,15 @@ def filter_all_images_with_bilateral(img, range_of_sigma_r, range_of_sigma_s):
 
 
 
-def plot_bilateral_filter(filtered_images, range_of_sigma_r, range_of_sigma_s, xMin = None, xMax = None, yMin = None, yMax = None):
+def plot_bilateral_filter(img, range_of_sigma_r, range_of_sigma_s, xMin = None, xMax = None, yMin = None, yMax = None):
     """
     plots the bilateral filtered images with different ranges of sigma_r and sigma_s.
     
+    Hint: You will have to call the bilateral filter in 2 for loops that loop through both 
+    range_of_sigma_r and range_of_sigma_s
+    
     args:
-        img (np.ndarray): image to put bilateral filter on.
+        img (np.ndarray): image to apply the bilateral filter on.
         range_of_sigma_r (lst) dtype = float: list of the desired sigma_r to be plotted.
         range_of_sigma_s (lst) dtype = float: list of the desired sigma_s to be plotted.
         xMin (int): Min x you want to plot (used to zoom in and look at a specific region of the image)
@@ -214,30 +219,9 @@ def visualize_detail_layer_single(img_flash,filtered,detail,eps,xmin=300,xmax=40
         yMax (int): Max y you want to plot (used to zoom in and look at a specific region of the image)
 
     '''
-     raise NotImplementedError
-
-    
-def plot_details(imgs, range_of_sigma_r, range_of_sigma_s, xMin = None, xMax = None, yMin = None, yMax = None):
-    """
-    plots the bilateral filtered images with different ranges of sigma_r and sigma_s.
-    
-    args:
-        img (np.ndarray): image to put bilateral filter on.
-        range_of_sigma_r (lst) dtype = float: list of the desired sigma_r to be plotted.
-        range_of_sigma_s (lst) dtype = float: list of the desired sigma_s to be plotted.
-        xMin (int): Min x you want to plot (used to zoom in and look at a specific region of the image)
-        xMax (int): Max x you want to plot (used to zoom in and look at a specific region of the image)
-        yMin (int): Min y you want to plot (used to zoom in and look at a specific region of the image)
-        yMax (int): Max y you want to plot (used to zoom in and look at a specific region of the image)
-    
-    output:
-        void, but should be subplots of the different results due to sigma_r and sigma_s.
-    """
-
-    #makes plot, and sets up the number of steps to change for sigma, and max(A), which is the max pixel value of the image.
     raise NotImplementedError
 
-
+    
     
     
 def calc_detail_layer(img,img_filtered,eps):
