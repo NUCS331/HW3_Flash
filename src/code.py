@@ -370,3 +370,24 @@ def complete_pipeline(foldername,sigma_r,sigma_s,eps):
         img_noisy_filtered
     """
     raise NotImplementedError
+    
+    
+def complete_pipeline_all_folders(folders):
+    '''
+    This function runs complete_pipeline for all the folders given in the list "folders"
+    This is just a sample code for you, feel free to modify it if it doesn't work as expected
+    '''
+    for iter, foldername in enumerate(folders):
+        print(iter)
+        print(foldername)
+        sigma_r = 0.2
+        sigma_s = 20
+        eps = 0.3
+        img_noisy,img_flash, fused_image, detail, img_flash_filtered, img_noisy_filtered = \
+            complete_pipeline(foldername,sigma_r,sigma_s,eps)
+        visualize_fusion(img_flash,img_flash_filtered,img_noisy,img_noisy_filtered,\
+            fused_image,detail,eps)
+        save_fig_as_png("fused_image_overview_full_" + foldername)
+        visualize_fusion(img_flash,img_flash_filtered,img_noisy,img_noisy_filtered,\
+            fused_image,detail,eps,xmin=100,xmax=300,ymin=400,ymax=600)
+        save_fig_as_png("fused_image_overview_crop_" + foldername)
